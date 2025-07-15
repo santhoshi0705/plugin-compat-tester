@@ -1,5 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>org.jenkins-ci.tests</groupId>
   <artifactId>plugins-compat-tester-aggregator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -18,8 +22,8 @@
     <module>plugins-compat-tester-cli</module>
     <module>plugins-compat-tester-model</module>
     <!--<module>plugins-compat-tester-rest</module>-->
-      <module>plugins-compat-tester-gae</module>
-      <module>plugins-compat-tester-gae-client</module>
+    <module>plugins-compat-tester-gae</module>
+    <module>plugins-compat-tester-gae-client</module>
   </modules>
 
   <dependencyManagement>
@@ -52,15 +56,25 @@
 
   <repositories>
     <repository>
-        <id>repo.jenkins-ci.org</id>
-        <url>http://repo.jenkins-ci.org/public/</url>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
+    </repository>
+    <repository>
+      <id>repo.jenkins-ci.org-snapshots</id>
+      <url>https://repo.jenkins-ci.org/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
   </repositories>
 
   <pluginRepositories>
     <pluginRepository>
-        <id>repo.jenkins-ci.org</id>
-        <url>http://repo.jenkins-ci.org/public/</url>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -84,7 +98,7 @@
                     <exclude>org.codehaus.plexus:plexus-container-default</exclude>
                   </excludes>
                   <message>
-                  ensure-no-plexus-container doesn't work anymore with maven 3 librairies. you have to add some exclusions.
+                    ensure-no-plexus-container doesn't work anymore with maven 3 librairies. you have to add some exclusions.
                   </message>
                 </bannedDependencies>
               </rules>
@@ -94,7 +108,6 @@
         </executions>
       </plugin>
     </plugins>
-
   </build>
 
 </project>
